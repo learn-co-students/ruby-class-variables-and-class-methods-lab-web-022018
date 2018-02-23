@@ -19,10 +19,6 @@ class Song
     @@artists.push(artist)
     @@genres.push(genre)
 
-    self.record(artist, genre)
-  end
-
-  def record(artist, genre)
     @@artist_count[artist] ? @@artist_count[artist] += 1 : @@artist_count[artist] = 1
     @@genres_count[genre] ? @@genres_count[genre] += 1 : @@genres_count[genre] = 1
   end
@@ -30,6 +26,7 @@ class Song
   def self.count
     @@count
   end
+
   def self.genres
     temp = []
     @@genres.each {|genre|
@@ -37,6 +34,7 @@ class Song
     }
     temp
   end
+
   def self.artists
     temp = []
     @@artists.each {|artist|
@@ -44,9 +42,11 @@ class Song
     }
     temp
   end
+
   def self.genre_count
     @@genres_count.each {|gen, count| @@genres_count[gen] = count/10}
   end
+
   def self.artist_count
     @@artist_count
   end
