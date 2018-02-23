@@ -27,28 +27,25 @@ class Song
   end
 
   def self.artists
-    answer = @@artists.each { |artist| puts artist}
-    answer.uniq
+    @@artists.uniq
   end
 
   def self.genres
-    answer2 = @@genres.each { |genre| puts genre}
-    answer2.uniq
+    @@genres.uniq
   end
 
 
   def self.genre_count
     genre_hash = {}
-    list = @@genres.each { |genre| puts genre}
-    @@genres.each { |genre| genre_hash[genre] = list.count(genre)}
+    @@genres.each { |genre| genre_hash[genre] = @@genres.count(genre)}
     genre_hash
 
   end
 
   def self.artist_count
     artist_hash = {}
-    list2 = @@artists.each { |artist| puts artist}
-    @@artists.each { |artist| artist_hash[artist] = list2.count(artist)}
+
+    @@artists.each { |artist| artist_hash[artist] = @@artists.count(artist)}
     artist_hash
   end
 
