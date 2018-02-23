@@ -30,22 +30,14 @@ class Song
   end
 
   def self.genre_count
-    genre_hash = Hash.new
-    @@genres.sort.each do |genre|
-      genre_key = genre
-      genre_value = @@genres.count(genre)
-      genre_hash[genre_key] = genre_value
-    end
+    genre_hash = {}
+    @@genres.sort.each { |genre| genre_hash[genre] = @@genres.count(genre) }
     genre_hash
   end
 
   def self.artist_count
-    artist_hash = Hash.new
-    @@artists.sort.each do |artist|
-      artist_key = artist
-      artist_value = @@artists.count(artist)
-      artist_hash[artist_key] = artist_value
-    end
+    artist_hash = {}
+    @@artists.sort.each { |artist| artist_hash[artist] = @@artists.count(artist) }
     artist_hash
   end
 
