@@ -1,5 +1,3 @@
-require 'pry'
-
 class Song
   
   attr_accessor :name, :artist, :genre
@@ -12,9 +10,9 @@ class Song
     @name = name
     @artist = artist
     @genre = genre
-    @@artists << artist
-    @@genres << genre
     @@count += 1
+    @@genres << genre
+    @@artists << artist
   end
   
   def self.count
@@ -30,21 +28,21 @@ class Song
   end
   
   def self.genre_count
-    genres_hash = Hash.new
-   @@genres.each do |x| 
-     genres_hash[x] += 1 if genres_hash[x]
-     genres_hash[x] = 1 if !genres_hash[x]
-   end
-   genres_hash
+    genreshash = {}
+    @@genres.each do |x|
+      genreshash[x] = 0 if !genreshash[x]
+      genreshash[x] += 1
+    end
+      genreshash
   end
   
   def self.artist_count
-    artists_hash = Hash.new
-    @@artists.each do |x| 
-      artists_hash[x] += 1 if artists_hash[x]
-      artists_hash[x] = 1 if !artists_hash[x]
+    artisthash = {}
+    @@artists.each do |x|
+      artisthash[x] = 0 if !artisthash[x]
+      artisthash[x] += 1
     end
-    artists_hash
+      artisthash
   end
   
 end
